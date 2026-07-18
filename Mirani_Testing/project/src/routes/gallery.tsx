@@ -31,7 +31,7 @@ function GalleryPage() {
     <SiteLayout>
       <section className="bg-cream section-y">
         <div className="container-mirani max-w-3xl">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-on-light dark:text-brand cb:text-brand">
             Gallery
           </p>
           <h1 className="mt-3 text-4xl md:text-5xl font-bold text-ink">

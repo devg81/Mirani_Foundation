@@ -167,7 +167,7 @@ function Impact() {
       <div className="blob w-96 h-96 bottom-0 right-0" style={{ animationDelay: "-8s" }} aria-hidden />
       <div className="container-mirani relative">
         <Reveal className="max-w-2xl">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-on-light dark:text-brand cb:text-brand">
             Our impact
           </p>
           <h2 className="mt-3 text-3xl md:text-4xl font-bold text-ink">
@@ -203,14 +203,14 @@ function CampaignsPreview() {
       <div className="container-mirani">
         <Reveal className="flex flex-wrap items-end justify-between gap-6">
           <div className="max-w-2xl">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-on-light dark:text-brand cb:text-brand">
               Campaigns
             </p>
             <h2 className="mt-3 text-3xl md:text-4xl font-bold">
               <TextReveal text="Where your support is going right now." />
             </h2>
           </div>
-          <Link to="/blogs" search={{ category: "Campaign" }} className="text-sm font-semibold text-ink hover:text-brand inline-flex items-center gap-1">
+          <Link to="/blogs" search={{ category: "Campaign" }} className="text-sm font-semibold text-ink hover:text-brand-on-light dark:hover:text-brand cb:hover:text-brand inline-flex items-center gap-1">
             View all campaigns <ArrowRight className="h-4 w-4" />
           </Link>
         </Reveal>
@@ -233,7 +233,7 @@ function CampaignsPreview() {
                   className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-brand-ink/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <span className="absolute top-4 left-4 bg-brand text-white text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full">
+                <span className="absolute top-4 left-4 bg-brand text-brand-ink text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full">
                   {c.category}
                 </span>
               </div>
@@ -263,7 +263,7 @@ function AboutPreview() {
       <div className="blob w-80 h-80 top-1/3 -right-16" aria-hidden />
       <div className="container-mirani relative">
         <Reveal className="max-w-2xl">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-on-light dark:text-brand cb:text-brand">
             About us
           </p>
           <h2 className="mt-3 text-3xl md:text-4xl font-bold text-ink">
@@ -318,14 +318,14 @@ function GalleryPreview() {
       <div className="container-mirani">
         <Reveal className="flex flex-wrap items-end justify-between gap-6">
           <div className="max-w-2xl">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-on-light dark:text-brand cb:text-brand">
               Gallery
             </p>
             <h2 className="mt-3 text-3xl md:text-4xl font-bold">
               <TextReveal text="Moments from the field." />
             </h2>
           </div>
-          <Link to="/gallery" className="text-sm font-semibold text-ink hover:text-brand inline-flex items-center gap-1">
+          <Link to="/gallery" className="text-sm font-semibold text-ink hover:text-brand-on-light dark:hover:text-brand cb:hover:text-brand inline-flex items-center gap-1">
             View all photos <ArrowRight className="h-4 w-4" />
           </Link>
         </Reveal>

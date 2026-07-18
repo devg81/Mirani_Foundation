@@ -41,6 +41,7 @@
   --color-ring: var(--ring);
   --color-brand: var(--brand);
   --color-brand-foreground: var(--brand-foreground);
+  --color-brand-on-light: var(--brand-on-light);
   --color-ink: var(--ink);
   --color-cream: var(--cream);
   --color-brand-ink: var(--brand-ink);
@@ -56,6 +57,15 @@
   /* Brand */
   --brand: oklch(0.72 0.18 55);              /* #F58220 orange */
   --brand-foreground: oklch(1 0 0);
+  /* On-light variant — for any orange TEXT or orange BUTTON FILL sitting on
+     a white/cream surface (nav active link, filled CTA buttons, small
+     labels, icon accents). #F58220 itself only clears WCAG AA on dark
+     surfaces (~8.1:1); on white it's 2.59:1, which fails both the 4.5:1
+     text minimum and the 3:1 UI-component minimum. This darker shade
+     passes both directions: #C2410C text on white = 5.18:1, white text on
+     a #C2410C fill = 5.18:1. Do not use this on dark surfaces — prefer the
+     base --brand there, it already passes at ~8.1:1. */
+  --brand-on-light: #C2410C;                 /* oklch(0.55 0.19 40) approx */
   --ink: oklch(0.16 0 0);                    /* near-black */
   --cream: oklch(0.985 0.012 80);            /* #FDF8F2 warm cream */
 
@@ -155,6 +165,7 @@
   --primary-foreground: oklch(1 0 0);
   --brand: oklch(0.556 0.129 54.8);
   --brand-foreground: oklch(1 0 0);
+  --brand-on-light: oklch(0.556 0.129 54.8); /* alias to the already-safe cb brand — avoid a second orange */
 
   /* Secondary — Okabe-Ito Blue, the single hue CUD research shows stays
      distinguishable from orange across every common CVD type. */
@@ -242,7 +253,10 @@
   gap: 0.5rem;
   padding: 0.75rem 1.5rem;
   border-radius: 9999px;
-  background-color: var(--color-brand);
+  /* on-light, not the raw brand orange: a filled button's label contrast
+     depends on the button's own fill, not the page section it sits in, so
+     the AA-safe shade is correct here even on the dark hero. */
+  background-color: var(--color-brand-on-light);
   color: var(--color-brand-foreground);
   font-weight: 600;
   font-size: 0.95rem;

@@ -34,7 +34,7 @@ function DonatePage() {
       <section className="bg-cream section-y">
         <div className="container-mirani grid lg:grid-cols-[1.1fr_1fr] gap-10 items-start">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-on-light dark:text-brand cb:text-brand">
               Donate
             </p>
             <h1 className="mt-3 text-4xl md:text-5xl font-bold text-ink leading-tight">
@@ -50,7 +50,7 @@ function DonatePage() {
                 "₹5,000 funds a full women's legal literacy workshop",
               ].map((t) => (
                 <li key={t} className="flex gap-3">
-                  <CheckCircle2 className="h-5 w-5 text-brand mt-0.5 shrink-0" />
+                  <CheckCircle2 className="h-5 w-5 text-brand-on-light dark:text-brand cb:text-brand mt-0.5 shrink-0" />
                   <span>{t}</span>
                 </li>
               ))}
@@ -60,7 +60,7 @@ function DonatePage() {
           <div className="rounded-2xl bg-card border border-border p-8 shadow-sm">
             {done ? (
               <div className="text-center py-10">
-                <div className="mx-auto w-14 h-14 rounded-full bg-brand/15 text-brand flex items-center justify-center">
+                <div className="mx-auto w-14 h-14 rounded-full bg-brand/15 text-brand-on-light dark:text-brand cb:text-brand flex items-center justify-center">
                   <CheckCircle2 className="h-7 w-7" />
                 </div>
                 <h2 className="mt-4 text-2xl font-bold text-ink">Thank you!</h2>
@@ -92,7 +92,7 @@ function DonatePage() {
                         }}
                         className={`rounded-lg border py-3 text-sm font-semibold transition-colors ${
                           amount === a && !custom
-                            ? "bg-brand text-white border-brand"
+                            ? "bg-brand-on-light text-white border-brand-on-light"
                             : "border-border text-ink hover:border-ink"
                         }`}
                       >

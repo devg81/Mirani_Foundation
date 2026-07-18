@@ -63,7 +63,7 @@ function BlogDetailPage() {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
           <div className="container-mirani absolute inset-x-0 bottom-0 pb-12 text-white">
-            <span className="inline-block bg-brand text-white text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full">
+            <span className="inline-block bg-brand text-brand-ink text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full">
               {post.category}
             </span>
             <h1 className="mt-4 text-3xl md:text-5xl font-bold max-w-4xl">{post.title}</h1>
@@ -116,10 +116,10 @@ function BlogDetailPage() {
                   <img src={p.image} alt={p.title} loading="lazy" className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
                 </div>
                 <div className="p-5">
-                  <span className="text-xs font-semibold uppercase tracking-wider text-brand">
+                  <span className="text-xs font-semibold uppercase tracking-wider text-brand-on-light dark:text-brand cb:text-brand">
                     {p.category}
                   </span>
-                  <h3 className="mt-2 font-semibold text-ink group-hover:text-brand">{p.title}</h3>
+                  <h3 className="mt-2 font-semibold text-ink group-hover:text-brand-on-light dark:group-hover:text-brand cb:group-hover:text-brand">{p.title}</h3>
                 </div>
               </Link>
             ))}

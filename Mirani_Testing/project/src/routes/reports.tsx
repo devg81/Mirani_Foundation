@@ -34,7 +34,7 @@ function ReportsPage() {
     <SiteLayout>
       <section className="bg-cream section-y">
         <div className="container-mirani max-w-3xl">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-on-light dark:text-brand cb:text-brand">
             Transparency
           </p>
           <h1 className="mt-3 text-4xl md:text-5xl font-bold text-ink">Reports & Publications</h1>
@@ -71,7 +71,7 @@ function ReportsPage() {
                   className="flex items-center justify-between gap-4 rounded-xl border border-border bg-card p-5 hover:border-ink transition-colors"
                 >
                   <div className="flex items-center gap-4 min-w-0">
-                    <div className="w-12 h-12 rounded-lg bg-brand/10 text-brand flex items-center justify-center shrink-0">
+                    <div className="w-12 h-12 rounded-lg bg-brand/10 text-brand-on-light dark:text-brand cb:text-brand flex items-center justify-center shrink-0">
                       <Icon className="h-6 w-6" />
                     </div>
                     <div className="min-w-0">
