@@ -151,7 +151,12 @@
    here — black-on-white / white-on-black is safe for every CVD type, so
    the fixed footer/CTA pattern needs no special treatment in this mode. */
 .cb {
-  --background: oklch(1 0 0);
+  /* Subtle cool-neutral canvas (not pure white) so CB mode reads as
+     visibly distinct from Bright mode at a glance. Cards/popovers stay
+     pure white per spec — only the surrounding page canvas shifts, and
+     the shift is deliberately minimal (98.2% lightness, faint blue hue)
+     so it stays "clean," not a visible gray box. */
+  --background: oklch(0.982 0.004 245);
   --foreground: oklch(0.16 0 0);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.16 0 0);
@@ -188,18 +193,23 @@
 
   /* Borders/inputs get a touch more contrast than light mode — useful for
      low-vision users who often land in this mode alongside CVD. */
-  --border: oklch(0.82 0.01 70);
-  --input: oklch(0.82 0.01 70);
+  --border: oklch(0.79 0.01 70);
+  --input: oklch(0.79 0.01 70);
   --ring: oklch(0.556 0.129 54.8);
 
   --ink: oklch(0.16 0 0);
-  --cream: oklch(0.985 0.012 80);
+  /* Alternating section surface — same cool-neutral family as
+     --background above (not the warm marketing cream) so section
+     rhythm stays consistent with the differentiated canvas. */
+  --cream: oklch(0.964 0.007 245);
 
-  --glass-bg: oklch(1 0 0 / 0.72);
-  --glass-bg-strong: oklch(1 0 0 / 0.92);
-  --glass-border: oklch(0.82 0.01 70 / 0.6);
-  --glass-glow: oklch(0.556 0.129 54.8 / 0.18);
-  --spotlight-color: oklch(0.556 0.129 54.8 / 0.14);
+  /* Glass surfaces kept, but calmer: less transparency swing and
+     noticeably lower glow intensity (see "Reduce Decorative Effects"). */
+  --glass-bg: oklch(1 0 0 / 0.82);
+  --glass-bg-strong: oklch(1 0 0 / 0.96);
+  --glass-border: oklch(0.79 0.01 70 / 0.7);
+  --glass-glow: oklch(0.556 0.129 54.8 / 0.09);
+  --spotlight-color: oklch(0.556 0.129 54.8 / 0.07);
 
   color-scheme: light;
 }
@@ -212,6 +222,55 @@
   text-decoration-line: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 3px;
+}
+
+/* CB mode: calmer surfaces. Same glass/shadow language, less intensity —
+   blur and shadow values aren't tokenized upstream, so these are scoped
+   overrides of the existing utilities rather than new ones. */
+.cb .glass-header,
+.cb .glass-header-scrolled {
+  backdrop-filter: blur(6px) saturate(115%);
+  -webkit-backdrop-filter: blur(6px) saturate(115%);
+}
+.cb .glass-card {
+  backdrop-filter: blur(6px) saturate(115%);
+  -webkit-backdrop-filter: blur(6px) saturate(115%);
+}
+.cb .glass-card-border::before { opacity: 0.2; }
+.cb .glass-card-border:hover::before { opacity: 0.45; }
+.cb .glass-card-border::after { display: none; }
+.cb .blob { opacity: 0.15; filter: blur(50px); animation-duration: 32s; }
+.cb .shine-sweep::after { display: none; }
+.cb :where(.hover\:shadow-lg, .hover\:shadow-xl, .hover\:shadow-2xl):hover {
+  box-shadow: 0 4px 14px oklch(0.16 0 0 / 0.1);
+}
+
+/* CB mode: calmer motion. Keep interactions responsive, reduce lift/zoom. */
+.cb :where(.hover\:-translate-y-1, .hover\:-translate-y-2):hover {
+  transform: translateY(-2px);
+}
+.cb .group:hover :where(.group-hover\:scale-105, .group-hover\:scale-110) {
+  transform: scale(1.02);
+}
+.cb .magnetic { transition-duration: 0.15s; }
+
+/* CB mode: slightly stronger typography and taller controls for readability. */
+.cb body {
+  font-weight: 450;
+  letter-spacing: 0.006em;
+}
+.cb p {
+  letter-spacing: 0.006em;
+  margin-bottom: 0.35em;
+}
+.cb :where(.btn-brand, .btn-ink, .btn-outline-ink) {
+  min-height: 48px;
+}
+
+/* CB mode: stronger, more visible focus ring. */
+.cb :focus-visible {
+  outline-width: 3px;
+  outline-offset: 3px;
 }
 
 @layer base {

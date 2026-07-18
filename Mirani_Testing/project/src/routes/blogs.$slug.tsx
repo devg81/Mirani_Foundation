@@ -116,10 +116,10 @@ function BlogDetailPage() {
                   <img src={p.image} alt={p.title} loading="lazy" className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
                 </div>
                 <div className="p-5">
-                  <span className="text-xs font-semibold uppercase tracking-wider text-brand-on-light dark:text-brand cb:text-brand">
+                  <span className="text-xs font-semibold uppercase tracking-wider text-brand-on-light dark:text-brand cb:text-secondary">
                     {p.category}
                   </span>
-                  <h3 className="mt-2 font-semibold text-ink group-hover:text-brand-on-light dark:group-hover:text-brand cb:group-hover:text-brand">{p.title}</h3>
+                  <h3 className="mt-2 font-semibold text-ink group-hover:text-brand-on-light dark:group-hover:text-brand cb:group-hover:text-secondary">{p.title}</h3>
                 </div>
               </Link>
             ))}

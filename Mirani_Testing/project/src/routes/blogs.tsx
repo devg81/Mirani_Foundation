@@ -45,7 +45,7 @@ function BlogsPage() {
     <SiteLayout>
       <section className="bg-cream section-y">
         <div className="container-mirani max-w-3xl">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-on-light dark:text-brand cb:text-brand">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-on-light dark:text-brand cb:text-secondary">
             Journal
           </p>
           <h1 className="mt-3 text-4xl md:text-5xl font-bold text-ink">
@@ -122,7 +122,7 @@ function BlogCard({ post }: { post: BlogPost }) {
             })}
           </time>
         </div>
-        <h3 className="mt-4 text-lg font-semibold text-ink leading-snug group-hover:text-brand-on-light dark:group-hover:text-brand cb:group-hover:text-brand transition-colors">
+        <h3 className="mt-4 text-lg font-semibold text-ink leading-snug group-hover:text-brand-on-light dark:group-hover:text-brand cb:group-hover:text-secondary transition-colors">
           {post.title}
         </h3>
         <p className="mt-2 text-sm text-muted-foreground flex-1">{post.excerpt}</p>

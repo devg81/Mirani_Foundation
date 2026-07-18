@@ -34,7 +34,7 @@ function DonatePage() {
       <section className="bg-cream section-y">
         <div className="container-mirani grid lg:grid-cols-[1.1fr_1fr] gap-10 items-start">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-on-light dark:text-brand cb:text-brand">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-on-light dark:text-brand cb:text-secondary">
               Donate
             </p>
             <h1 className="mt-3 text-4xl md:text-5xl font-bold text-ink leading-tight">
@@ -50,7 +50,7 @@ function DonatePage() {
                 "₹5,000 funds a full women's legal literacy workshop",
               ].map((t) => (
                 <li key={t} className="flex gap-3">
-                  <CheckCircle2 className="h-5 w-5 text-brand-on-light dark:text-brand cb:text-brand mt-0.5 shrink-0" />
+                  <CheckCircle2 className="h-5 w-5 text-brand-on-light dark:text-brand cb:text-secondary mt-0.5 shrink-0" />
                   <span>{t}</span>
                 </li>
               ))}

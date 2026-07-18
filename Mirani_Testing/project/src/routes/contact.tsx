@@ -22,7 +22,7 @@ function ContactPage() {
     <SiteLayout>
       <section className="bg-cream section-y">
         <div className="container-mirani max-w-3xl">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-on-light dark:text-brand cb:text-brand">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-on-light dark:text-brand cb:text-secondary">
             Get in touch
           </p>
           <h1 className="mt-3 text-4xl md:text-5xl font-bold text-ink">
@@ -44,23 +44,23 @@ function ContactPage() {
       <section className="section-y bg-cream">
         <div className="container-mirani grid lg:grid-cols-2 gap-10 items-start">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-on-light dark:text-brand cb:text-brand">Find us</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-on-light dark:text-brand cb:text-secondary">Find us</p>
             <h2 className="mt-3 text-3xl font-bold text-ink">Reach out or drop in.</h2>
             <ul className="mt-6 space-y-4 text-ink">
               <li className="flex gap-3">
-                <Phone className="h-5 w-5 text-brand-on-light dark:text-brand cb:text-brand mt-0.5" />
-                <a href={`tel:${contactInfo.phone.replace(/\s/g, "")}`} className="hover:text-brand-on-light dark:hover:text-brand cb:hover:text-brand">
+                <Phone className="h-5 w-5 text-brand-on-light dark:text-brand cb:text-secondary mt-0.5" />
+                <a href={`tel:${contactInfo.phone.replace(/\s/g, "")}`} className="hover:text-brand-on-light dark:hover:text-brand cb:hover:text-secondary">
                   {contactInfo.phone}
                 </a>
               </li>
               <li className="flex gap-3">
-                <Mail className="h-5 w-5 text-brand-on-light dark:text-brand cb:text-brand mt-0.5" />
-                <a href={`mailto:${contactInfo.email}`} className="hover:text-brand-on-light dark:hover:text-brand cb:hover:text-brand">
+                <Mail className="h-5 w-5 text-brand-on-light dark:text-brand cb:text-secondary mt-0.5" />
+                <a href={`mailto:${contactInfo.email}`} className="hover:text-brand-on-light dark:hover:text-brand cb:hover:text-secondary">
                   {contactInfo.email}
                 </a>
               </li>
               <li className="flex gap-3">
-                <MapPin className="h-5 w-5 text-brand-on-light dark:text-brand cb:text-brand mt-0.5" />
+                <MapPin className="h-5 w-5 text-brand-on-light dark:text-brand cb:text-secondary mt-0.5" />
                 <span>{contactInfo.address}</span>
               </li>
             </ul>

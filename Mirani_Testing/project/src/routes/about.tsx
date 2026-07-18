@@ -26,7 +26,7 @@ function AboutPage() {
     <SiteLayout>
       <section className="bg-cream section-y">
         <div className="container-mirani max-w-3xl">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-on-light dark:text-brand cb:text-brand">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-on-light dark:text-brand cb:text-secondary">
             About Mirani Foundation
           </p>
           <h1 className="mt-3 text-4xl md:text-5xl font-bold text-ink leading-tight">
@@ -44,7 +44,7 @@ function AboutPage() {
       <section className="section-y">
         <div className="container-mirani space-y-16">
           <div className="max-w-2xl">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-on-light dark:text-brand cb:text-brand">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-on-light dark:text-brand cb:text-secondary">
               Our three pillars
             </p>
             <h2 className="mt-3 text-3xl md:text-4xl font-bold">
@@ -63,7 +63,7 @@ function AboutPage() {
                 <img src={p.image} alt={p.title} loading="lazy" className="h-full w-full object-cover" />
               </div>
               <div>
-                <span className="text-brand-on-light dark:text-brand cb:text-brand text-sm font-semibold uppercase tracking-wider">
+                <span className="text-brand-on-light dark:text-brand cb:text-secondary text-sm font-semibold uppercase tracking-wider">
                   Pillar {String(i + 1).padStart(2, "0")}
                 </span>
                 <h3 className="mt-2 text-3xl font-bold text-ink">{p.title}</h3>
@@ -77,7 +77,7 @@ function AboutPage() {
       <section className="section-y bg-cream">
         <div className="container-mirani">
           <div className="max-w-2xl">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-on-light dark:text-brand cb:text-brand">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-on-light dark:text-brand cb:text-secondary">
               Team
             </p>
             <h2 className="mt-3 text-3xl md:text-4xl font-bold text-ink">
@@ -92,7 +92,7 @@ function AboutPage() {
                 </div>
                 <div className="p-6">
                   <h3 className="text-lg font-semibold text-ink">{m.name}</h3>
-                  <p className="text-sm text-brand-on-light dark:text-brand cb:text-brand font-medium">{m.role}</p>
+                  <p className="text-sm text-brand-on-light dark:text-brand cb:text-secondary font-medium">{m.role}</p>
                   <blockquote className="mt-4 text-sm text-muted-foreground italic border-l-2 border-brand pl-3">
                     "{m.quote}"
                   </blockquote>
