@@ -110,7 +110,7 @@ function BlogDetailPage() {
                 key={p.slug}
                 to="/blogs/$slug"
                 params={{ slug: p.slug }}
-                className="group rounded-2xl overflow-hidden bg-white border border-border"
+                className="group rounded-2xl overflow-hidden bg-card border border-border"
               >
                 <div className="aspect-[16/10] overflow-hidden">
                   <img src={p.image} alt={p.title} loading="lazy" className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />

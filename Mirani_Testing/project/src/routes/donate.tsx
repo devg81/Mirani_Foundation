@@ -57,7 +57,7 @@ function DonatePage() {
             </ul>
           </div>
 
-          <div className="rounded-2xl bg-white border border-border p-8 shadow-sm">
+          <div className="rounded-2xl bg-card border border-border p-8 shadow-sm">
             {done ? (
               <div className="text-center py-10">
                 <div className="mx-auto w-14 h-14 rounded-full bg-brand/15 text-brand flex items-center justify-center">
@@ -106,7 +106,7 @@ function DonatePage() {
                     onChange={(e) => setCustom(e.target.value)}
                     placeholder="Or enter a custom amount"
                     min={100}
-                    className="mt-3 w-full rounded-lg border border-border bg-white px-4 py-3 text-sm focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/20"
+                    className="mt-3 w-full rounded-lg border border-border bg-card px-4 py-3 text-sm focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/20"
                   />
                 </div>
 
@@ -115,7 +115,7 @@ function DonatePage() {
                   <select
                     value={campaign}
                     onChange={(e) => setCampaign(e.target.value)}
-                    className="mt-2 w-full rounded-lg border border-border bg-white px-4 py-3 text-sm focus:outline-none focus:border-brand"
+                    className="mt-2 w-full rounded-lg border border-border bg-card px-4 py-3 text-sm focus:outline-none focus:border-brand"
                   >
                     <option>General fund</option>
                     {campaigns.map((c) => (
@@ -125,9 +125,9 @@ function DonatePage() {
                 </div>
 
                 <div className="grid gap-3">
-                  <input type="text" placeholder="Full name" required className="w-full rounded-lg border border-border bg-white px-4 py-3 text-sm focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/20" />
-                  <input type="email" placeholder="Email" required className="w-full rounded-lg border border-border bg-white px-4 py-3 text-sm focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/20" />
-                  <input type="tel" placeholder="Phone (10 digits)" pattern="[6-9][0-9]{9}" required className="w-full rounded-lg border border-border bg-white px-4 py-3 text-sm focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/20" />
+                  <input type="text" placeholder="Full name" required className="w-full rounded-lg border border-border bg-card px-4 py-3 text-sm focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/20" />
+                  <input type="email" placeholder="Email" required className="w-full rounded-lg border border-border bg-card px-4 py-3 text-sm focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/20" />
+                  <input type="tel" placeholder="Phone (10 digits)" pattern="[6-9][0-9]{9}" required className="w-full rounded-lg border border-border bg-card px-4 py-3 text-sm focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/20" />
                 </div>
 
                 <label className="flex items-start gap-3 text-sm text-ink">

@@ -86,7 +86,7 @@ function AboutPage() {
           </div>
           <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {teamMembers.map((m) => (
-              <div key={m.name} className="rounded-2xl bg-white border border-border overflow-hidden">
+              <div key={m.name} className="rounded-2xl bg-card border border-border overflow-hidden">
                 <div className="aspect-[4/3] overflow-hidden">
                   <img src={m.image} alt={m.name} loading="lazy" className="h-full w-full object-cover" />
                 </div>
@@ -155,9 +155,9 @@ function VolunteerForm() {
 
 function DonateForm() {
   return (
-    <div className="rounded-2xl bg-ink text-white p-8">
+    <div className="rounded-2xl bg-brand-ink text-brand-ink-foreground p-8">
       <h3 className="text-2xl font-bold">Donate now</h3>
-      <p className="mt-3 text-sm text-white/70">
+      <p className="mt-3 text-sm text-brand-ink-foreground/70">
         A quick way to give right from this page. Secure payment via Razorpay.
       </p>
       <div className="mt-6 grid grid-cols-4 gap-2">
@@ -165,7 +165,7 @@ function DonateForm() {
           <button
             key={a}
             type="button"
-            className="rounded-lg border border-white/25 text-white py-3 text-sm font-semibold hover:bg-brand hover:border-brand transition-colors"
+            className="rounded-lg border border-brand-ink-foreground/25 text-brand-ink-foreground py-3 text-sm font-semibold hover:bg-brand hover:border-brand transition-colors"
           >
             ₹{a.toLocaleString()}
           </button>
@@ -176,17 +176,17 @@ function DonateForm() {
           type="number"
           min={100}
           placeholder="Custom amount (₹)"
-          className="w-full rounded-lg bg-white/5 border border-white/20 text-white placeholder:text-white/50 px-4 py-3 text-sm focus:outline-none focus:border-brand"
+          className="w-full rounded-lg bg-brand-ink-foreground/5 border border-brand-ink-foreground/20 text-brand-ink-foreground placeholder:text-brand-ink-foreground/50 px-4 py-3 text-sm focus:outline-none focus:border-brand"
         />
         <input
           type="text"
           placeholder="Full name"
-          className="w-full rounded-lg bg-white/5 border border-white/20 text-white placeholder:text-white/50 px-4 py-3 text-sm focus:outline-none focus:border-brand"
+          className="w-full rounded-lg bg-brand-ink-foreground/5 border border-brand-ink-foreground/20 text-brand-ink-foreground placeholder:text-brand-ink-foreground/50 px-4 py-3 text-sm focus:outline-none focus:border-brand"
         />
         <input
           type="email"
           placeholder="Email"
-          className="w-full rounded-lg bg-white/5 border border-white/20 text-white placeholder:text-white/50 px-4 py-3 text-sm focus:outline-none focus:border-brand"
+          className="w-full rounded-lg bg-brand-ink-foreground/5 border border-brand-ink-foreground/20 text-brand-ink-foreground placeholder:text-brand-ink-foreground/50 px-4 py-3 text-sm focus:outline-none focus:border-brand"
         />
         <Link to="/donate" className="btn-brand btn-brand-hover w-full">
           Continue to secure payment <ArrowRight className="h-4 w-4" />
@@ -212,7 +212,7 @@ function Field({
   placeholder?: string;
 }) {
   const cls =
-    "w-full rounded-lg border border-border bg-white px-4 py-3 text-sm text-ink focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/20";
+    "w-full rounded-lg border border-border bg-card px-4 py-3 text-sm text-ink focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/20";
   return (
     <label className="block">
       <span className="text-sm font-medium text-ink">{label}</span>

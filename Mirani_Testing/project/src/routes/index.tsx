@@ -64,7 +64,7 @@ function Hero() {
   return (
     <section
       ref={parallaxRef}
-      className="relative isolate overflow-hidden bg-ink"
+      className="relative isolate overflow-hidden bg-brand-ink"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
@@ -119,7 +119,7 @@ function Hero() {
                 </Link>
               </MagneticButton>
               <MagneticButton>
-                <Link to="/donate" className="btn-outline-ink btn-outline-ink-hover !text-white !border-white/70 hover:!bg-white hover:!text-ink">
+                <Link to="/donate" className="btn-outline-ink btn-outline-ink-hover !text-white !border-white/70 hover:!bg-white hover:!text-brand-ink">
                   Donate now
                 </Link>
               </MagneticButton>
@@ -221,7 +221,7 @@ function CampaignsPreview() {
               key={c.slug}
               as="article"
               delay={idx * 120}
-              className="group relative rounded-2xl overflow-hidden bg-ink text-white flex flex-col transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl"
+              className="group relative rounded-2xl overflow-hidden bg-brand-ink text-brand-ink-foreground flex flex-col transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl"
             >
               <CursorSpotlight />
               <div className="relative aspect-[4/3] overflow-hidden">
@@ -232,14 +232,14 @@ function CampaignsPreview() {
                   decoding="async"
                   className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-ink/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-t from-brand-ink/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <span className="absolute top-4 left-4 bg-brand text-white text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full">
                   {c.category}
                 </span>
               </div>
               <div className="relative p-6 flex-1 flex flex-col">
                 <h3 className="text-xl font-semibold">{c.title}</h3>
-                <p className="mt-3 text-sm text-white/70 flex-1">{c.excerpt}</p>
+                <p className="mt-3 text-sm text-brand-ink-foreground/70 flex-1">{c.excerpt}</p>
                 <Link
                   to="/blogs/$slug"
                   params={{ slug: c.slug }}
@@ -344,7 +344,7 @@ function GalleryPreview() {
                 loading="lazy"
                 className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-4">
+              <div className="absolute inset-0 bg-gradient-to-t from-brand-ink/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-4">
                 <p className="text-white text-sm font-medium translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
                   {g.caption}
                 </p>

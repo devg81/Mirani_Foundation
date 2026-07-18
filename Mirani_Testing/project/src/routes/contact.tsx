@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { SiteLayout } from "@/components/SiteLayout";
 import { contactInfo } from "@/lib/site-data";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin, AlertCircle } from "lucide-react";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -65,7 +65,7 @@ function ContactPage() {
               </li>
             </ul>
           </div>
-          <div className="aspect-video rounded-2xl overflow-hidden border border-border bg-white">
+          <div className="aspect-video rounded-2xl overflow-hidden border border-border bg-card">
             <iframe
               title="Mirani Foundation location"
               src={contactInfo.mapEmbed}
@@ -82,17 +82,17 @@ function ContactPage() {
 
 function DonationCard() {
   return (
-    <div className="rounded-2xl bg-ink text-white p-8">
+    <div className="rounded-2xl bg-brand-ink text-brand-ink-foreground p-8">
       <h2 className="text-2xl font-bold">Donate directly</h2>
-      <p className="mt-2 text-sm text-white/70">
+      <p className="mt-2 text-sm text-brand-ink-foreground/70">
         Give online via Razorpay or transfer to our bank account.
       </p>
-      <div className="mt-6 rounded-xl bg-white/5 border border-white/15 p-5 text-sm space-y-1">
-        <p className="text-white/60 uppercase text-xs font-semibold tracking-wider">Bank details</p>
-        <p><span className="text-white/60">Account name:</span> {contactInfo.bank.name}</p>
-        <p><span className="text-white/60">Account no:</span> {contactInfo.bank.account}</p>
-        <p><span className="text-white/60">IFSC:</span> {contactInfo.bank.ifsc}</p>
-        <p><span className="text-white/60">Bank:</span> {contactInfo.bank.bankName}</p>
+      <div className="mt-6 rounded-xl bg-brand-ink-foreground/5 border border-brand-ink-foreground/15 p-5 text-sm space-y-1">
+        <p className="text-brand-ink-foreground/60 uppercase text-xs font-semibold tracking-wider">Bank details</p>
+        <p><span className="text-brand-ink-foreground/60">Account name:</span> {contactInfo.bank.name}</p>
+        <p><span className="text-brand-ink-foreground/60">Account no:</span> {contactInfo.bank.account}</p>
+        <p><span className="text-brand-ink-foreground/60">IFSC:</span> {contactInfo.bank.ifsc}</p>
+        <p><span className="text-brand-ink-foreground/60">Bank:</span> {contactInfo.bank.bankName}</p>
       </div>
 
       <form className="mt-6 grid gap-3">
@@ -100,28 +100,28 @@ function DonationCard() {
           type="number"
           placeholder="Amount (₹)"
           min={100}
-          className="w-full rounded-lg bg-white/5 border border-white/20 text-white placeholder:text-white/50 px-4 py-3 text-sm focus:outline-none focus:border-brand"
+          className="w-full rounded-lg bg-brand-ink-foreground/5 border border-brand-ink-foreground/20 text-brand-ink-foreground placeholder:text-brand-ink-foreground/50 px-4 py-3 text-sm focus:outline-none focus:border-brand"
         />
         <input
           type="text"
           placeholder="Full name"
-          className="w-full rounded-lg bg-white/5 border border-white/20 text-white placeholder:text-white/50 px-4 py-3 text-sm focus:outline-none focus:border-brand"
+          className="w-full rounded-lg bg-brand-ink-foreground/5 border border-brand-ink-foreground/20 text-brand-ink-foreground placeholder:text-brand-ink-foreground/50 px-4 py-3 text-sm focus:outline-none focus:border-brand"
         />
         <input
           type="email"
           placeholder="Email"
-          className="w-full rounded-lg bg-white/5 border border-white/20 text-white placeholder:text-white/50 px-4 py-3 text-sm focus:outline-none focus:border-brand"
+          className="w-full rounded-lg bg-brand-ink-foreground/5 border border-brand-ink-foreground/20 text-brand-ink-foreground placeholder:text-brand-ink-foreground/50 px-4 py-3 text-sm focus:outline-none focus:border-brand"
         />
         <input
           type="tel"
           placeholder="Phone (10 digits)"
           pattern="[6-9][0-9]{9}"
-          className="w-full rounded-lg bg-white/5 border border-white/20 text-white placeholder:text-white/50 px-4 py-3 text-sm focus:outline-none focus:border-brand"
+          className="w-full rounded-lg bg-brand-ink-foreground/5 border border-brand-ink-foreground/20 text-brand-ink-foreground placeholder:text-brand-ink-foreground/50 px-4 py-3 text-sm focus:outline-none focus:border-brand"
         />
         <button type="submit" className="btn-brand btn-brand-hover w-full">
           Donate via Razorpay
         </button>
-        <p className="text-xs text-white/50 text-center">Secure payment · 80G tax-exempt receipt on request</p>
+        <p className="text-xs text-brand-ink-foreground/50 text-center">Secure payment · 80G tax-exempt receipt on request</p>
       </form>
     </div>
   );
@@ -146,12 +146,12 @@ function ContactVolunteerCard() {
   }
 
   const cls = (k: string) =>
-    `w-full rounded-lg border bg-white px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand/20 ${
+    `w-full rounded-lg border bg-card px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand/20 ${
       errors[k] ? "border-destructive" : "border-border focus:border-brand"
     }`;
 
   return (
-    <div className="rounded-2xl bg-white border border-border p-8">
+    <div className="rounded-2xl bg-card border border-border p-8">
       <h2 className="text-2xl font-bold text-ink">Volunteer or send a query</h2>
       <p className="mt-2 text-sm text-muted-foreground">
         Choose what you'd like to do below.
@@ -164,7 +164,7 @@ function ContactVolunteerCard() {
             type="button"
             onClick={() => setMode(m)}
             className={`px-4 py-2 rounded-full text-sm font-semibold transition-colors ${
-              mode === m ? "bg-ink text-white" : "text-ink"
+              mode === m ? "bg-brand-ink text-brand-ink-foreground" : "text-ink"
             }`}
           >
             {m === "volunteer" ? "Sign up as volunteer" : "Send a query"}
@@ -180,15 +180,30 @@ function ContactVolunteerCard() {
         <form onSubmit={handleSubmit} className="mt-6 grid gap-4" noValidate>
           <div>
             <input name="name" placeholder="Full name" className={cls("name")} />
-            {errors.name && <p className="mt-1 text-xs text-destructive">{errors.name}</p>}
+            {errors.name && (
+              <p className="mt-1 flex items-center gap-1 text-xs text-destructive">
+                <AlertCircle className="h-3.5 w-3.5 shrink-0" aria-hidden />
+                {errors.name}
+              </p>
+            )}
           </div>
           <div>
             <input name="email" type="email" placeholder="Email" className={cls("email")} />
-            {errors.email && <p className="mt-1 text-xs text-destructive">{errors.email}</p>}
+            {errors.email && (
+              <p className="mt-1 flex items-center gap-1 text-xs text-destructive">
+                <AlertCircle className="h-3.5 w-3.5 shrink-0" aria-hidden />
+                {errors.email}
+              </p>
+            )}
           </div>
           <div>
             <input name="phone" type="tel" placeholder="Phone (10 digits)" className={cls("phone")} />
-            {errors.phone && <p className="mt-1 text-xs text-destructive">{errors.phone}</p>}
+            {errors.phone && (
+              <p className="mt-1 flex items-center gap-1 text-xs text-destructive">
+                <AlertCircle className="h-3.5 w-3.5 shrink-0" aria-hidden />
+                {errors.phone}
+              </p>
+            )}
           </div>
           <div>
             <input
@@ -196,7 +211,12 @@ function ContactVolunteerCard() {
               placeholder="Location (city, state)"
               className={cls("location")}
             />
-            {errors.location && <p className="mt-1 text-xs text-destructive">{errors.location}</p>}
+            {errors.location && (
+              <p className="mt-1 flex items-center gap-1 text-xs text-destructive">
+                <AlertCircle className="h-3.5 w-3.5 shrink-0" aria-hidden />
+                {errors.location}
+              </p>
+            )}
             <p className="mt-1 text-[11px] text-muted-foreground">
               We use Google Places to help you pick a real location.
             </p>
@@ -212,7 +232,12 @@ function ContactVolunteerCard() {
               }
               className={cls("message")}
             />
-            {errors.message && <p className="mt-1 text-xs text-destructive">{errors.message}</p>}
+            {errors.message && (
+              <p className="mt-1 flex items-center gap-1 text-xs text-destructive">
+                <AlertCircle className="h-3.5 w-3.5 shrink-0" aria-hidden />
+                {errors.message}
+              </p>
+            )}
           </div>
           <button type="submit" className="btn-ink btn-ink-hover w-full">
             {mode === "volunteer" ? "Submit volunteer application" : "Send message"}

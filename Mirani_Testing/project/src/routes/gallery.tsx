@@ -53,8 +53,8 @@ function GalleryPage() {
                 onClick={() => setActive(c)}
                 className={`shrink-0 px-4 py-2 rounded-full text-sm font-semibold border transition-colors min-h-[44px] ${
                   active === c
-                    ? "bg-ink text-white border-ink"
-                    : "bg-white text-ink border-border hover:border-ink"
+                    ? "bg-brand-ink text-brand-ink-foreground border-brand-ink"
+                    : "bg-card text-ink border-border hover:border-ink"
                 }`}
               >
                 {c}

@@ -53,8 +53,8 @@ function ReportsPage() {
                 onClick={() => setType(t)}
                 className={`px-4 py-2 rounded-full text-sm font-semibold border transition-colors min-h-[44px] ${
                   type === t
-                    ? "bg-ink text-white border-ink"
-                    : "bg-white text-ink border-border hover:border-ink"
+                    ? "bg-brand-ink text-brand-ink-foreground border-brand-ink"
+                    : "bg-card text-ink border-border hover:border-ink"
                 }`}
               >
                 {t}
@@ -68,7 +68,7 @@ function ReportsPage() {
               return (
                 <div
                   key={r.title}
-                  className="flex items-center justify-between gap-4 rounded-xl border border-border bg-white p-5 hover:border-ink transition-colors"
+                  className="flex items-center justify-between gap-4 rounded-xl border border-border bg-card p-5 hover:border-ink transition-colors"
                 >
                   <div className="flex items-center gap-4 min-w-0">
                     <div className="w-12 h-12 rounded-lg bg-brand/10 text-brand flex items-center justify-center shrink-0">
