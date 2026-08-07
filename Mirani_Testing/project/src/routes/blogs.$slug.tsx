@@ -1,7 +1,18 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/SiteLayout";
-import { blogPosts } from "@/lib/site-data";
+import { blogPosts, type BlogPost } from "@/lib/site-data";
 import { ArrowLeft } from "lucide-react";
+
+const CLOSING_NOTE: Record<BlogPost["category"], string> = {
+  Campaign:
+    "Every campaign like this one runs on people who show up. If you'd like to be part of the next one, join us on the donate page — or drop us a line.",
+  Story:
+    "Stories like this are why we do this work. If it moved you, consider supporting what comes next on our donate page — or say hello.",
+  "Press Release":
+    "For more on our ongoing partnerships and programs, visit the donate page to support our work — or get in touch.",
+  Publication:
+    "If this research resonates with you, you can support further work like it on our donate page — or reach out to learn more.",
+};
 
 export const Route = createFileRoute("/blogs/$slug")({
   loader: ({ params }) => {
@@ -82,12 +93,13 @@ function BlogDetailPage() {
             {post.excerpt}
           </p>
           <div className="mt-8 prose prose-lg max-w-none text-ink leading-relaxed">
-            <p>{post.content}</p>
-            <p>
-              We're grateful to every volunteer, donor and partner who made this
-              work possible. If you'd like to support the next campaign, join us
-              on the donate page — or drop us a line.
-            </p>
+            {post.content.split("\n\n").map((para, i) => (
+              <p key={i}>{para}</p>
+            ))}
+          </div>
+
+          <div className="mt-10 rounded-2xl bg-cream border border-border p-6 text-sm text-muted-foreground">
+            {CLOSING_NOTE[post.category]}
           </div>
 
           <div className="mt-12 flex gap-4">

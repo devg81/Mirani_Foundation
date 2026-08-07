@@ -1,8 +1,8 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { SiteLayout } from "@/components/SiteLayout";
-import { pillars, teamMembers } from "@/lib/site-data";
-import { ArrowRight, HeartHandshake } from "lucide-react";
+import { pillars, teamMembers, contactInfo } from "@/lib/site-data";
+import { HeartHandshake, Landmark } from "lucide-react";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -30,13 +30,15 @@ function AboutPage() {
             About Mirani Foundation
           </p>
           <h1 className="mt-3 text-4xl md:text-5xl font-bold text-ink leading-tight">
-            A decade of walking alongside the communities we serve.
+            A Decade of Standing With, Not In Front Of
           </h1>
           <p className="mt-6 text-lg text-muted-foreground">
-            Mirani Foundation is a grassroots NGO working across health,
-            education and social justice in India. We started in a two-room
-            clinic in Pune. Today, our programs reach 12 districts — but the
-            belief is the same: dignity is not a service, it's a right.
+            Mirani Foundation was founded in 2015 out of a simple conviction:
+            that dignity shouldn't depend on circumstance. What began with
+            direct aid to displaced and marginalized families in Maharashtra
+            has grown into a sustained commitment across Health, Education
+            and Social Justice — always working alongside the communities we
+            serve, never ahead of them.
           </p>
         </div>
       </section>
@@ -156,42 +158,47 @@ function VolunteerForm() {
 function DonateForm() {
   return (
     <div className="rounded-2xl bg-brand-ink text-brand-ink-foreground p-8">
-      <h3 className="text-2xl font-bold">Donate now</h3>
-      <p className="mt-3 text-sm text-brand-ink-foreground/70">
-        A quick way to give right from this page. Secure payment via Razorpay.
-      </p>
-      <div className="mt-6 grid grid-cols-4 gap-2">
-        {[500, 1000, 2500, 5000].map((a) => (
-          <button
-            key={a}
-            type="button"
-            className="rounded-lg border border-brand-ink-foreground/25 text-brand-ink-foreground py-3 text-sm font-semibold hover:bg-brand-on-light hover:border-brand-on-light transition-colors"
-          >
-            ₹{a.toLocaleString()}
-          </button>
-        ))}
+      <div className="flex items-center gap-3">
+        <div className="w-10 h-10 rounded-full bg-brand/15 text-brand flex items-center justify-center">
+          <Landmark className="h-5 w-5" />
+        </div>
+        <h3 className="text-2xl font-bold">Donate now</h3>
       </div>
-      <form className="mt-4 grid gap-3">
-        <input
-          type="number"
-          min={100}
-          placeholder="Custom amount (₹)"
-          className="w-full rounded-lg bg-brand-ink-foreground/5 border border-brand-ink-foreground/20 text-brand-ink-foreground placeholder:text-brand-ink-foreground/50 px-4 py-3 text-sm focus:outline-none focus:border-brand"
-        />
-        <input
-          type="text"
-          placeholder="Full name"
-          className="w-full rounded-lg bg-brand-ink-foreground/5 border border-brand-ink-foreground/20 text-brand-ink-foreground placeholder:text-brand-ink-foreground/50 px-4 py-3 text-sm focus:outline-none focus:border-brand"
-        />
-        <input
-          type="email"
-          placeholder="Email"
-          className="w-full rounded-lg bg-brand-ink-foreground/5 border border-brand-ink-foreground/20 text-brand-ink-foreground placeholder:text-brand-ink-foreground/50 px-4 py-3 text-sm focus:outline-none focus:border-brand"
-        />
-        <Link to="/donate" className="btn-brand btn-brand-hover w-full">
-          Continue to secure payment <ArrowRight className="h-4 w-4" />
-        </Link>
-      </form>
+      <p className="mt-3 text-sm text-brand-ink-foreground/70">
+        Transfer directly to our bank account using the details below.
+      </p>
+      <div className="mt-6 rounded-xl bg-brand-ink-foreground/5 border border-brand-ink-foreground/15 p-5 text-sm space-y-2">
+        <p className="text-brand-ink-foreground/60 uppercase text-xs font-semibold tracking-wider">
+          Bank details
+        </p>
+        <p>
+          <span className="text-brand-ink-foreground/60">Account name:</span>{" "}
+          {contactInfo.bank.accountName}
+        </p>
+        <p>
+          <span className="text-brand-ink-foreground/60">Account number:</span>{" "}
+          {contactInfo.bank.accountNumber}
+        </p>
+        <p>
+          <span className="text-brand-ink-foreground/60">Account type:</span>{" "}
+          {contactInfo.bank.accountType}
+        </p>
+        <p>
+          <span className="text-brand-ink-foreground/60">IFSC:</span>{" "}
+          {contactInfo.bank.ifsc}
+        </p>
+        <p>
+          <span className="text-brand-ink-foreground/60">Bank:</span>{" "}
+          {contactInfo.bank.bankName}
+        </p>
+        <p>
+          <span className="text-brand-ink-foreground/60">Branch address:</span>{" "}
+          {contactInfo.bank.branchAddress}
+        </p>
+      </div>
+      <p className="mt-4 text-xs text-brand-ink-foreground/50 text-center">
+        Online payment gateway will be available soon · 80G tax-exempt receipt on request
+      </p>
     </div>
   );
 }
