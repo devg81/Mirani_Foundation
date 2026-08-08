@@ -171,7 +171,7 @@ function Impact() {
             Our impact
           </p>
           <h2 className="mt-3 text-3xl md:text-4xl font-bold text-ink">
-            <TextReveal text="Ten years. Thousands of stories. One shared belief." />
+            <TextReveal text="11 years, many stories. One shared belief of being helpful." />
           </h2>
         </Reveal>
         <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6">
@@ -270,9 +270,9 @@ function AboutPreview() {
             <TextReveal text="Three pillars. One mission." />
           </h2>
           <p className="mt-4 text-muted-foreground">
-            At Mirani Foundation, we champion health, education, and social
-            justice — working hand in hand with communities to create lasting
-            change.
+            At Mirani Foundation, we champion Health, Education, and Social
+            Justice — working hand in hand with communities to create lasting
+            change, one act of care at a time.
           </p>
         </Reveal>
 
