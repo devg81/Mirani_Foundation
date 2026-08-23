@@ -11,6 +11,7 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { ThemeProvider, THEME_INIT_SCRIPT } from "../lib/theme";
+import { AdminAuthProvider } from "../lib/admin-auth";
 
 function NotFoundComponent() {
   return (
@@ -33,6 +34,7 @@ function NotFoundComponent() {
     </div>
   );
 }
+
 function ErrorComponent({
   error,
   reset,
@@ -78,6 +80,7 @@ function ErrorComponent({
     </div>
   );
 }
+
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: () => ({
     meta: [
@@ -95,7 +98,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     ],
     links: [
       { rel: "stylesheet", href: appCss },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "icon", href: "D:\Mirani-Foundation\Mirani_Foundation\src\assets\mirani-logo.png", type: "image/x-icon" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
@@ -132,8 +135,10 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <ThemeProvider>
-        {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-        <Outlet />
+        <AdminAuthProvider>
+          {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+          <Outlet />
+        </AdminAuthProvider>
       </ThemeProvider>
     </QueryClientProvider>
   );
