@@ -1,6 +1,6 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import logo from "@/assets/mirani-logo.png";
+import logo from "@/assets/mirani-logo.svg";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { MagneticButton } from "@/components/MagneticButton";
 import { useAdminAuth } from "@/lib/admin-auth";
