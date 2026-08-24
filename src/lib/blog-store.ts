@@ -1,22 +1,13 @@
 import { useEffect, useState } from "react";
 import { blogPosts as staticBlogPosts, type BlogPost } from "@/lib/site-data";
+import { coreBlogPosts } from "@/lib/core-blog-posts";
 
 /**
  * Client-side access to admin-created blog posts.
  *
- * These posts are persisted server-side in a Google Sheet (see
- * `src/lib/server/google-sheets.ts` and `src/routes/api.blogs.ts`) rather
- * than a traditional database — a "for now" datastore that's shared across
- * every visitor and admin, unlike the browser-local approach this used to
- * use. `/api/blogs` is the single source of truth for sheet-backed posts;
- * this module just fetches from and posts to it.
- *
- * TODO(persistence): if/when a real database is added, swap the fetch
- * calls below for that backend — the shape of everything here should stay
- * the same.
+ * Sheet-backed posts remain available for admin publishing, while the
+ * foundation's core editorial posts are version-controlled in the repo.
  */
-
-/** Sentinel stored in `image` for posts created without a real photo yet. */
 export const BLOG_IMAGE_PLACEHOLDER = "__placeholder__";
 
 export type NewBlogPostInput = {
@@ -50,7 +41,6 @@ export async function addBlogPost(input: NewBlogPostInput): Promise<BlogPost> {
   return data.post;
 }
 
-/** Fetches admin-created posts from the sheet; falls back to [] on any failure. */
 async function fetchSheetPosts(): Promise<BlogPost[]> {
   try {
     const res = await fetch("/api/blogs");
@@ -61,15 +51,14 @@ async function fetchSheetPosts(): Promise<BlogPost[]> {
   }
 }
 
-/** All blog posts — the built-in ones plus any sheet-backed ones, newest sheet posts first. */
+/** All posts: sheet-backed admin posts first, then repo-managed editorial posts. */
 export async function fetchAllBlogPosts(): Promise<BlogPost[]> {
   const sheetPosts = await fetchSheetPosts();
-  return [...sheetPosts, ...staticBlogPosts];
+  return [...sheetPosts, ...coreBlogPosts, ...staticBlogPosts];
 }
 
-/** React hook: loads the combined post list (static + sheet) once on mount. */
 export function useBlogPosts(): BlogPost[] {
-  const [posts, setPosts] = useState<BlogPost[]>(staticBlogPosts);
+  const [posts, setPosts] = useState<BlogPost[]>([...coreBlogPosts, ...staticBlogPosts]);
 
   useEffect(() => {
     let cancelled = false;
