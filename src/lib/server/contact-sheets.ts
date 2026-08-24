@@ -29,7 +29,7 @@ const CONFIG = {
     // Web App IDs are not authentication secrets. The actual write
     // credential remains SHEET_SECRET in the server environment.
     fallbackUrl:
-      "https://script.google.com/macros/s/AKfycbyr1g800MjNrX9ZlfsUzxh3mbYGUHN6MyEK4jwlqWIrcUX15cFEIa5b6EvEZvdARbF7rQ/exec",
+      "https://script.google.com/macros/s/AKfycbxE3eHFQUPjUKHGQKjNbfk-u3kkFHw7MFLED9QHSfCVbp7lOfp-BVhH7jhN3ZDPOwCq_w/exec",
   },
   query: {
     urlEnv: "QUERY_SHEET_WEBHOOK_URL",
