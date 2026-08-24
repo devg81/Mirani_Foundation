@@ -18,14 +18,6 @@ const CLOSING_NOTE: Record<BlogPost["category"], string> = {
 };
 
 export const Route = createFileRoute("/blogs/$slug")({
-  // NOTE: only the built-in posts (site-data.ts) can be resolved here,
-  // because this loader can run server-side and admin-created posts
-  // currently live in the browser's localStorage (see src/lib/blog-store.ts
-  // for why — there's no database wired up yet). If a post isn't in the
-  // static list we don't 404 immediately; BlogDetailPage checks the
-  // client-side store on mount before giving up. Once posts are persisted
-  // server-side, this loader should fetch from there instead and this
-  // workaround can go away.
   loader: ({ params }) => {
     const post = blogPosts.find((p) => p.slug === params.slug) ?? null;
     return { post };
@@ -71,9 +63,7 @@ function NotFoundNotice() {
 }
 
 function PostImage({ post, className }: { post: BlogPost; className: string }) {
-  if (post.image === BLOG_IMAGE_PLACEHOLDER) {
-    return <ImagePlaceholder className={className} />;
-  }
+  if (post.image === BLOG_IMAGE_PLACEHOLDER) return <ImagePlaceholder className={className} />;
   return <img src={post.image} alt={post.title} className={className} />;
 }
 
@@ -84,8 +74,6 @@ function BlogDetailPage() {
   const [checkedClientStore, setCheckedClientStore] = useState(Boolean(staticPost));
   const allPosts = useBlogPosts();
 
-  // Falls back to the sheet-backed store when the post wasn't found in the
-  // static list — see the loader note above.
   useEffect(() => {
     if (staticPost) return;
     let cancelled = false;
@@ -99,9 +87,7 @@ function BlogDetailPage() {
     };
   }, [staticPost, params.slug]);
 
-  if (!post) {
-    return checkedClientStore ? <NotFoundNotice /> : null;
-  }
+  if (!post) return checkedClientStore ? <NotFoundNotice /> : null;
 
   const more = allPosts.filter((p) => p.slug !== post.slug).slice(0, 3);
 
@@ -129,9 +115,43 @@ function BlogDetailPage() {
         <div className="container-mirani max-w-3xl section-y">
           <p className="text-lg text-muted-foreground leading-relaxed">{post.excerpt}</p>
           <div className="mt-8 prose prose-lg max-w-none text-ink leading-relaxed">
-            {post.content.split("\n\n").map((para, i) => (
-              <p key={i}>{para}</p>
-            ))}
+            {post.content.split("\n\n").map((block, i) => {
+              if (block.startsWith("> ")) {
+                const quote = block
+                  .split("\n")
+                  .map((line) => line.replace(/^>\s?/, ""))
+                  .join(" ");
+                return (
+                  <blockquote key={i} className="my-8 border-l-4 border-brand pl-5 text-xl italic text-ink">
+                    {quote}
+                  </blockquote>
+                );
+              }
+              if (block.startsWith("### ")) {
+                return (
+                  <h3 key={i} className="mt-10 mb-4 text-2xl font-bold text-ink">
+                    {block.replace(/^### /, "")}
+                  </h3>
+                );
+              }
+              if (block.startsWith("## ")) {
+                return (
+                  <h2 key={i} className="mt-12 mb-5 text-3xl font-bold text-ink">
+                    {block.replace(/^## /, "")}
+                  </h2>
+                );
+              }
+              if (/^\d+\. /.test(block)) {
+                return (
+                  <div key={i} className="my-4 rounded-xl border border-border bg-card p-5">
+                    {block.split("\n").map((line, j) => (
+                      <p key={j} className="mb-2 last:mb-0">{line}</p>
+                    ))}
+                  </div>
+                );
+              }
+              return <p key={i}>{block}</p>;
+            })}
           </div>
 
           <div className="mt-10 rounded-2xl bg-cream border border-border p-6 text-sm text-muted-foreground">
@@ -161,10 +181,7 @@ function BlogDetailPage() {
                 className="group rounded-2xl overflow-hidden bg-card border border-border"
               >
                 <div className="aspect-[16/10] overflow-hidden">
-                  <PostImage
-                    post={p}
-                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
+                  <PostImage post={p} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
                 </div>
                 <div className="p-5">
                   <span className="text-xs font-semibold uppercase tracking-wider text-brand-on-light dark:text-brand cb:text-secondary">
